@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SoftballStatsViewer.Models.Models.Controllers
+namespace SoftballStatsViewer.Controllers
 {
     public class HomeController : Controller
     {
