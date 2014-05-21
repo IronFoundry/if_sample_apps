@@ -10,16 +10,14 @@ namespace SoftballStatsViewer.Models
     {
         protected override void Seed(TeamContext context)
         {
-            var team = new Team {SchoolName = "DePauw", Nickname = "Tigers", ID = 5};
             var players = new List<Player>
             {
                 new Player{ ID = 5, PlayerName = "Linsey", TeamId = 5},
                 new Player{ ID = 6, PlayerName = "Jane", TeamId = 5}
             };
-
             players.ForEach(p => context.Players.Add(p));
-            //context.SaveChanges();
 
+            var team = new Team { SchoolName = "DePauw", Nickname = "Tigers", ID = 5 };
             var teams = new List<Team>
             {
                 team
