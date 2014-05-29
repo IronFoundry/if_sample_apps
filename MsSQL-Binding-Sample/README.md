@@ -1,4 +1,4 @@
-if_sameple_apps
+if_sample_apps
 ===============
 
 Sample applications for Iron Foundry

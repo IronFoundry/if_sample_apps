@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftballStatsViewer", "SoftballStatsViewer\SoftballStatsViewer.csproj", "{2ED5197E-D489-45DF-9E0D-845E1FCFA83A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{6FD8CB7D-0455-41F5-8A82-43CF98203987}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2ED5197E-D489-45DF-9E0D-845E1FCFA83A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2ED5197E-D489-45DF-9E0D-845E1FCFA83A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2ED5197E-D489-45DF-9E0D-845E1FCFA83A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FD8CB7D-0455-41F5-8A82-43CF98203987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FD8CB7D-0455-41F5-8A82-43CF98203987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FD8CB7D-0455-41F5-8A82-43CF98203987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FD8CB7D-0455-41F5-8A82-43CF98203987}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,7 +10,7 @@ namespace SoftballStatsViewer.Models
 {
     public class TeamContext : DbContext
     {
-        public TeamContext() : base("TeamContext")
+        public TeamContext() : base(CloudFoundryConnectionStringBinder.Bind("ms-sql", "free-sql"))
         {
         }
 
