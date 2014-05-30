@@ -3,6 +3,8 @@ applications:
 - name: SoftballStats
   memory: 512M
   instances: 1
+  stack: windows2012
   services:
   - free-sql
 
+	
