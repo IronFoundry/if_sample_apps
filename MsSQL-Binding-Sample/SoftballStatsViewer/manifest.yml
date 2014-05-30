@@ -1,0 +1,8 @@
+---
+applications:
+- name: SoftballStats
+  memory: 512M
+  instances: 1
+  services:
+  - free-sql
+

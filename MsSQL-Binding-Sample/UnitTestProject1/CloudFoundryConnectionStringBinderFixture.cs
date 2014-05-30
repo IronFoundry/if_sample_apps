@@ -16,25 +16,55 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void OriginalConnectionStringNameReturnedWhenVCapServicesIsNull()
+        public void OriginalConnectionStringReturnedWhenVCapServicesIsNull()
         {
-            string originalConnectionStringName = CloudFoundryConnectionStringBinder.Bind("ms-sql", "test-connection-string");
+            string originalConnectionStringName = CloudFoundryConnectionStringBinder.Bind("ms-sql", "RealName");
 
-            Assert.AreEqual("test-connection-string", originalConnectionStringName);
+            Assert.AreEqual("foo", originalConnectionStringName);
         }
 
         [TestMethod]
-        public void OriginalConnectionStringNameReturnedWhenNameNotFoundInConfigFile()
+        public void ReturnsNullWhenNameNotFoundInConfigFile()
         {
-            string originalConnectionStringName = CloudFoundryConnectionStringBinder.Bind("ms-sql", "FakeName");
+            string returnedNull = CloudFoundryConnectionStringBinder.Bind("ms-sql", "FakeName");
 
-            Assert.AreEqual("FakeName", originalConnectionStringName);
+            Assert.IsNull(returnedNull);
+        }
+
+        [TestMethod]
+        public void ExceptionThrownWhenNoMatchingServiceTypeFound()
+        {
+            Environment.SetEnvironmentVariable("VCAP_SERVICES", multipleServices);
+            try
+            {
+                CloudFoundryConnectionStringBinder.Bind("not-found-service-type", "RealName");
+                Assert.Fail();
+            }
+            catch (ArgumentException e)
+            {
+                Assert.IsTrue(e.Message.Contains("not-found-service-type"));
+            }
+        }
+
+        [TestMethod]
+        public void ExceptionThrownWhenConnectionStringNameNotFoundInCorrectServiceTypeSection()
+        {
+            Environment.SetEnvironmentVariable("VCAP_SERVICES", multipleServices);
+            try
+            {
+                CloudFoundryConnectionStringBinder.Bind("ms-sql", "DifferentConnectionString");
+            }
+            catch (ArgumentException e)
+            {
+                Assert.IsTrue(e.Message.Contains("DifferentConnectionString"));
+            }
         }
 
         [TestMethod]
         public void MatchingConnectionStringReturnedFromVcapServicesWhenConnectionStringNamesMatch()
         {
             Environment.SetEnvironmentVariable("VCAP_SERVICES", multipleServices);
+
             string cfConnectionString = CloudFoundryConnectionStringBinder.Bind("ms-sql", "RealName");
             Assert.AreEqual("Data Source=10.91.166.29,1433;Initial Catalog=cf-db-153449c9-e184-4952-aca1-ad3ab7b4d2cb;User ID=cf-user-d29728c1-ce6e-412f-b6eb-d901b08cb2e0;Password=]Q#wUN[{J%z+O7o6Q7zhmWWc", cfConnectionString);
         }

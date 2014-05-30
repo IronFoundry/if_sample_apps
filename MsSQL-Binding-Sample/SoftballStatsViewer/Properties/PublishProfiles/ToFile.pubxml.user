@@ -15,6 +15,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Antlr3.Runtime.pdb">
       <publishTime>05/14/2014 18:28:12</publishTime>
     </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>05/30/2014 09:47:09</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>05/30/2014 09:47:09</publishTime>
+    </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>05/14/2014 18:28:14</publishTime>
     </File>
@@ -28,10 +34,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/23/2014 13:05:41</publishTime>
     </File>
     <File Include="bin/SoftballStatsViewer.dll">
-      <publishTime>05/23/2014 19:08:49</publishTime>
+      <publishTime>05/30/2014 09:45:04</publishTime>
     </File>
     <File Include="bin/SoftballStatsViewer.pdb">
-      <publishTime>05/23/2014 19:08:49</publishTime>
+      <publishTime>05/30/2014 09:45:04</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>05/14/2014 18:28:16</publishTime>
@@ -84,8 +90,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Global.asax">
       <publishTime>05/14/2014 16:01:03</publishTime>
     </File>
+    <File Include="manifest.yml">
+      <publishTime>05/30/2014 09:46:58</publishTime>
+    </File>
     <File Include="packages.config">
       <publishTime>05/23/2014 13:05:42</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>05/30/2014 09:47:07</publishTime>
+    </File>
+    <File Include="README.md">
+      <publishTime>05/30/2014 09:44:31</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>05/14/2014 16:01:03</publishTime>
@@ -166,7 +181,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/14/2014 16:01:03</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/23/2014 18:59:36</publishTime>
+      <publishTime>05/30/2014 09:38:22</publishTime>
     </File>
   </ItemGroup>
 </Project>
