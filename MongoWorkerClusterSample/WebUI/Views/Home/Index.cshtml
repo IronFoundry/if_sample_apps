@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section ExtraJavascript
+{
+    @Scripts.Render("~/Scripts/websocket-bab.js");
+}
+
+<div class="jumbotron">
+    <h1>Full Application Sample</h1>
+    <p class="lead">This application consists of a front end web site that takes a string from the user, spreads it across three workers, who manipulate the strings in interesting ways, and send the results back to the client using web sockets.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Enter a message:</h2>
+        <p>
+            Enter your message here, and see it transformed different ways by different worker processes. Amaze your friends.
+        </p>
+    </div>
+    <div class="col-md-4">
+        @using (Ajax.BeginForm("Swap", "Home", new AjaxOptions {HttpMethod="POST", InsertionMode = InsertionMode.InsertAfter, UpdateTargetId="response"}))
+        {
+            <fieldset>
+                <label>Enter string to transmogrify: </label>
+                <input type="text" name="userString"/>
+                <input type="submit"/>
+            </fieldset>
+        }
+        
+        <fieldset>
+            <label>Enter Collector URL: </label>
+            <input type="text" name="collectorUrl"/>
+            <input type="button" id="connectButton" value="Connect" onclick="connectWebSocket()" />
+            <input type="button" id="disconnectButton" value="Disconnect" onclick="disconnectWebSocket()" />
+        </fieldset>
+    </div>
+    <div id="response"></div>
+</div>

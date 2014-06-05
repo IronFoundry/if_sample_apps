@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "FullApplication\WebUI.csproj", "{B1E8192E-0430-4F7F-9192-FAC1AC5AC8ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoLib", "MongoLib\MongoLib.csproj", "{E580B173-79D6-4D35-A61F-CC56A229F73B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryWorker", "QueryWorker\QueryWorker.csproj", "{0376A204-8BFB-4F9E-8874-A7FF08F0B5A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collector", "Collector\Collector.csproj", "{F5F167D2-15B5-4A7D-8C70-4C2137873AFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9DAC87C7-1A60-4413-BE9E-CE2457D4B843}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1E8192E-0430-4F7F-9192-FAC1AC5AC8ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1E8192E-0430-4F7F-9192-FAC1AC5AC8ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1E8192E-0430-4F7F-9192-FAC1AC5AC8ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1E8192E-0430-4F7F-9192-FAC1AC5AC8ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E580B173-79D6-4D35-A61F-CC56A229F73B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E580B173-79D6-4D35-A61F-CC56A229F73B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E580B173-79D6-4D35-A61F-CC56A229F73B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E580B173-79D6-4D35-A61F-CC56A229F73B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0376A204-8BFB-4F9E-8874-A7FF08F0B5A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0376A204-8BFB-4F9E-8874-A7FF08F0B5A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0376A204-8BFB-4F9E-8874-A7FF08F0B5A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0376A204-8BFB-4F9E-8874-A7FF08F0B5A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5F167D2-15B5-4A7D-8C70-4C2137873AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5F167D2-15B5-4A7D-8C70-4C2137873AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5F167D2-15B5-4A7D-8C70-4C2137873AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5F167D2-15B5-4A7D-8C70-4C2137873AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
