@@ -16,9 +16,9 @@ namespace WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Swap(String userString)
+        public ActionResult Publish(String userString)
         {
-            Console.WriteLine("Swap starting...");
+            Console.WriteLine("Publish starting...");
             CloudFoundryMongoBinder binder = new CloudFoundryMongoBinder();
             Console.WriteLine("binding to " + binder.Url + ":" + binder.DatabaseName);
 
@@ -28,11 +28,6 @@ namespace WebUI.Controllers
 
             Console.WriteLine("Waiting for next call...");
 
-            return new EmptyResult();
-        }
-
-        public ActionResult CollectResults()
-        {
             return new EmptyResult();
         }
     }
