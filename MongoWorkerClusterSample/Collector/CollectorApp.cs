@@ -18,22 +18,29 @@ namespace Collector
  
         static void Main(string[] args)
         {
-            MongoQueue<string> collectorQueue = new MongoQueue<string>("mongodb://127.0.0.1/queue_test", "queue_test", "collector_queue", 32000);
+            Console.WriteLine();
+            Console.WriteLine("******* Collector starting ********");
+
+            CloudFoundryMongoBinder binder = new CloudFoundryMongoBinder();
+            MongoQueue<string> collectorQueue = new MongoQueue<string>(binder.Url, binder.DatabaseName, "collector_queue", 32000);
             server = new WebSocketServer();
-            bool successfulSetup = server.Setup(59567);
+            
+            if(binder.AppPort.HasValue == false) throw new ArgumentNullException("port", "Is not set!");
+
+            bool successfulSetup = server.Setup(Convert.ToInt32(binder.AppPort.Value));
+            Console.WriteLine("Server setup complete");
             server.NewMessageReceived += server_NewMessageReceived;
             server.NewSessionConnected += server_NewSessionConnected;
             bool successfulStart = server.Start();
+            Console.WriteLine("Server started");
 
             while (true)
             {
-                Console.Write("Waiting for data...<");
-                Console.Out.Flush();
+                Console.WriteLine("Waiting for data...<");
 
                 string userData = collectorQueue.Receive();
 
-                Console.Write(userData + "> writing to client...");
-                Console.Out.Flush();
+                Console.WriteLine(userData + "> writing to client...");
 
                 SendToClient(userData);
 
@@ -52,8 +59,7 @@ namespace Collector
             Console.WriteLine("Sending data to client");
             foreach (var session in server.GetSessions(c => true))
             {
-                Console.Write("\t" + session.RemoteEndPoint.Address + ":" + session.RemoteEndPoint.Port + "...");
-                Console.Out.Flush();
+                Console.WriteLine(session.RemoteEndPoint.Address + ":" + session.RemoteEndPoint.Port + "...");
 
                 session.Send(userData);
 

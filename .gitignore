@@ -1,7 +1,10 @@
 **/bin/
+**/obj/
 **/debug/
 *.suo
 packages/
 *~
 *.user
 TestResults/
+PublishProfiles/
+

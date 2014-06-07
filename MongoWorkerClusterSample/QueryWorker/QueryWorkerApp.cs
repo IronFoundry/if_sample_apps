@@ -11,18 +11,26 @@ namespace QueryWorker
     {
         public static void Main()
         {
-            MongoQueue<string> workerQueue = new MongoQueue<string>("mongodb://127.0.0.1/queue_test", "queue_test", "worker_queue", 32000);
-            MongoQueue<string> collectorQueue = new MongoQueue<string>("mongodb://127.0.0.1/queue_test", "queue_test", "collector_queue", 32000);
+            Console.WriteLine("QueryWorkerApp starting...");
+
+            CloudFoundryMongoBinder binder = new CloudFoundryMongoBinder();
+            Console.WriteLine("binding to " + binder.Url + ":" + binder.DatabaseName);
+
+            MongoQueue<string> collectorQueue = new MongoQueue<string>(binder.Url, binder.DatabaseName, "collector_queue", 32000);
+            MongoQueue<string> workerQueue = new MongoQueue<string>(binder.Url, binder.DatabaseName, "worker_queue", 32000);
+            Console.WriteLine("Finished creating queues");
 
             while (true)
             {
-                Console.Write("Waiting... <");
-                Console.Out.Flush();
+                Console.WriteLine("Waiting...");
 
                 string result = workerQueue.Receive();
+
+                Console.WriteLine("Received " + result);
+
                 collectorQueue.Send(result.ToUpper());
 
-                Console.WriteLine(result + ">");
+                Console.WriteLine("Back to top of loop");
             }
         }
     }
