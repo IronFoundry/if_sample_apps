@@ -1,0 +1,7 @@
+﻿applications:
+- name: query_worker
+  stack: windows2012
+  command: QueryWorker.exe
+  no-route: true
+  services:
+  - mongo-workers

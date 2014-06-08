@@ -22,7 +22,7 @@
             </p>
         </div>
         <div class="col-md-4">
-            @using (Ajax.BeginForm("Publish", "Home", new AjaxOptions {HttpMethod="POST", InsertionMode = InsertionMode.InsertAfter, UpdateTargetId="response"}))
+        @using (Ajax.BeginForm("Publish", "Home", new AjaxOptions {HttpMethod="POST", InsertionMode = InsertionMode.InsertAfter, UpdateTargetId="response"}))
         {
             <fieldset>
                     <label>Enter string to transmogrify: </label>

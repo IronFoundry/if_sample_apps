@@ -14,23 +14,28 @@ namespace QueryWorker
             Console.WriteLine("QueryWorkerApp starting...");
 
             CloudFoundryMongoBinder binder = new CloudFoundryMongoBinder();
-            Console.WriteLine("binding to " + binder.Url + ":" + binder.DatabaseName);
 
             MongoQueue<string> collectorQueue = new MongoQueue<string>(binder.Url, binder.DatabaseName, "collector_queue", 32000);
             MongoQueue<string> workerQueue = new MongoQueue<string>(binder.Url, binder.DatabaseName, "worker_queue", 32000);
-            Console.WriteLine("Finished creating queues");
 
-            while (true)
+            try
             {
-                Console.WriteLine("Waiting...");
+                while (true)
+                {
+                    Console.WriteLine("Waiting...");
 
-                string result = workerQueue.Receive();
+                    string result = workerQueue.Receive();
 
-                Console.WriteLine("Received " + result);
+                    Console.WriteLine("Received " + result);
 
-                collectorQueue.Send(result.ToUpper());
+                    collectorQueue.Send(binder.AppPort + ":" + result.ToUpper());
 
-                Console.WriteLine("Back to top of loop");
+                    Console.WriteLine("Back to top of loop");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Query worker exiting after exception: " + e);
             }
         }
     }

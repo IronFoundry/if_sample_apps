@@ -20,13 +20,12 @@ namespace WebUI.Controllers
         {
             Console.WriteLine("Publish starting...");
             CloudFoundryMongoBinder binder = new CloudFoundryMongoBinder();
-            Console.WriteLine("binding to " + binder.Url + ":" + binder.DatabaseName);
 
             MongoQueue<string> workerQueue = new MongoQueue<string>(binder.Url, binder.DatabaseName, "worker_queue", 32000);
             Publisher publisher = new Publisher(workerQueue);
             publisher.Publish(userString);
 
-            Console.WriteLine("Waiting for next call...");
+            Console.WriteLine("... Publishing finished");
 
             return new EmptyResult();
         }

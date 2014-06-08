@@ -25,8 +25,6 @@ namespace Collector
             MongoQueue<string> collectorQueue = new MongoQueue<string>(binder.Url, binder.DatabaseName, "collector_queue", 32000);
             server = new WebSocketServer();
             
-            if(binder.AppPort.HasValue == false) throw new ArgumentNullException("port", "Is not set!");
-
             bool successfulSetup = server.Setup(Convert.ToInt32(binder.AppPort.Value));
             Console.WriteLine("Server setup complete");
             server.NewMessageReceived += server_NewMessageReceived;

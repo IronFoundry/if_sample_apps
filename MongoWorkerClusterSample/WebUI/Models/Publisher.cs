@@ -17,9 +17,7 @@ namespace WebUI.Models
 
         public void Publish(String userContent)
         {
-            Console.WriteLine("writing " + userContent);
             WorkerQueue.Send(userContent);
-            Console.WriteLine("Data written");
         }
     }
 }

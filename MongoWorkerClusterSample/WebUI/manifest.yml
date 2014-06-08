@@ -1,0 +1,5 @@
+﻿applications:
+- name: mongo-ui
+  stack: windows2012
+  services:
+  - mongo-workers
