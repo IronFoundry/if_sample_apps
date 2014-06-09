@@ -24,7 +24,7 @@ namespace WebUI.Models
 
                     Console.WriteLine("Received " + userData);
 
-                    Clients.All.addNewMessageToPage(userData);
+                    Clients.Caller.addNewMessageToPage(userData);
 
                     Console.WriteLine("Data written");
                 }

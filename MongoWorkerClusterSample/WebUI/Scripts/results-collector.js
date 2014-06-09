@@ -8,10 +8,11 @@ $(function () {
     resultsCollector.client.addNewMessageToPage = function (result) {
         // Add the message to the page.
         $('#results').append('<li><strong>' + htmlEncode(result) + '</strong></li>');
+//        $('#results').value += ('<li><strong>' + htmlEncode(result) + '</strong></li>');
     };
     
     // Start the connection.
-    $.connection.hub.start().done(function () {
+    $.connection.hub.start({transport: 'longPolling'}).done(function () {
         resultsCollector.server.sendResults();
     });
 });
