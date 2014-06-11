@@ -4,4 +4,4 @@
   command: QueryWorker.exe
   no-route: true
   services:
-  - mongo-workers
+  - mongo-sample
