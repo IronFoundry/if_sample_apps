@@ -99,7 +99,7 @@ namespace WebListener
             if (String.IsNullOrEmpty(port)) throw new Exception("Port not set");
 
             WebsocketServer server = new WebsocketServer();
-            string listenerAddress = "http://" + host + ":" + port + "/Foo/";
+            string listenerAddress = "http://*:" + port + "/Foo/";
             Console.WriteLine("Listening on " + listenerAddress);
 
             server.Start(listenerAddress);
