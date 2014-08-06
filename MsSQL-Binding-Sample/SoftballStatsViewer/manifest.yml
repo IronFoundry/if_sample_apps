@@ -6,5 +6,3 @@ applications:
   stack: windows2012
   services:
   - free-sql
-
-	
